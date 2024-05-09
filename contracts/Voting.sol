@@ -51,16 +51,17 @@ contract Voting {
     }
 
     //function to get the status of voting
-    function getVotingStatus() public view returns (bool) {
+    function getVotingStatus()public view returns(bool){
         return (block.timestamp >= votingStart && block.timestamp < votingEnd);
     }
 
     //function to get remaing time to vote
-    function getRemainingTime() public view returns (uint256) {
+    function getRemainingTime()public view returns(uint256){
         require(block.timestamp >= votingStart, "Voting has not started yet!");
-        if (block.timestamp >= votingEnd) {
+        if(block.timestamp >= votingEnd){
             return 0;
         }
         return votingEnd - block.timestamp;
     }
+    
 }
